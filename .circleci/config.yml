@@ -46,7 +46,7 @@ jobs:
           # Never place a Snyk auth token directly in a pipeline configuration file
           # (this is a 'hardcoded secret'!)
 
-          - run: # run snyk auth - authenticate snyk use environment variables to add token
+      - run: # run snyk auth - authenticate snyk use environment variables to add token
           name: snyk auth
           command: snyk auth $SNYK_TOKEN
 
@@ -59,7 +59,7 @@ jobs:
           command: |
             snyk version
             snyk test --severity-threshold=high --fail-on=upgradable
-            
+
 workflows:
   tsm-bootcamp:
     jobs:
